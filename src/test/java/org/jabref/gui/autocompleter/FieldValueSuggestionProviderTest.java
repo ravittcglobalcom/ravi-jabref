@@ -44,6 +44,9 @@ class FieldValueSuggestionProviderTest {
         assertEquals(Collections.emptyList(), result);
     }
 
+    /**
+     * JR-2 Useful for user experience
+     */
     @Test
     void completeAfterAddingEmptyEntryReturnsNothing() {
         BibEntry entry = new BibEntry();
