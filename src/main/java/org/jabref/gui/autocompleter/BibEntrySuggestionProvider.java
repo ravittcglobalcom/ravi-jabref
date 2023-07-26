@@ -25,6 +25,8 @@ public class BibEntrySuggestionProvider extends SuggestionProvider<BibEntry> {
 
     @Override
     protected Equivalence<BibEntry> getEquivalence() {
+        // TODO: add proper logging
+        System.out.println("Got Equivalence!");
         return Equivalence.equals().onResultOf(BibEntry::getCitationKey);
     }
 
