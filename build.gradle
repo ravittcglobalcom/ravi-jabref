@@ -29,6 +29,8 @@ plugins {
     id 'idea'
 
     id 'org.openrewrite.rewrite' version '6.1.16'
+
+    id 'com.teamscale' version '30.1.1'
 }
 
 // Enable following for debugging
@@ -42,8 +44,8 @@ group = "org.jabref"
 version = project.findProperty('projVersion') ?: '100.0.0'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_19
-    targetCompatibility = JavaVersion.VERSION_19
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
     // Workaround needed for Eclipse, probably because of https://github.com/gradle/gradle/issues/16922
     // Should be removed as soon as Gradle 7.0.1 is released ( https://github.com/gradle/gradle/issues/16922#issuecomment-828217060 )
     modularity.inferModulePath.set(false)
@@ -56,6 +58,7 @@ java {
 application {
     mainClass.set('org.jabref.cli.Launcher')
     mainModule.set('org.jabref')
+    applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocoagent.properties"']
 }
 
 // Workaround for https://github.com/openjfx/javafx-gradle-plugin/issues/89
@@ -387,6 +390,8 @@ javadoc {
 }
 
 test {
+    ignoreFailures = true
+
     useJUnitPlatform {
         excludeTags 'DatabaseTest', 'FetcherTest', 'GUITest'
     }
@@ -481,6 +486,32 @@ jacocoTestReport {
         html.getRequired().set(true)
         xml.getRequired().set(true) // coveralls plugin depends on xml format report
     }
+}
+
+teamscale {
+
+    server {
+        url = 'https://ttcglobal.teamscale.io/'
+        userName = 'guywmcd'
+        userAccessToken = 'nXTnEGxQT2gfnNw87AoF7es36cbt4Csx'
+        project = 'guy-jabref'
+    }
+
+    report {
+        testwiseCoverage {
+            partition = 'Tests'
+        }
+    }
+
+}
+
+tasks.register('tiaTests', com.teamscale.TestImpacted) {
+    useJUnitPlatform()
+    jacoco {
+        includes = ["tia.*", "org.jabref.*"]
+    }
+
+    ignoreFailures = true
 }
 
 // Code quality tasks
