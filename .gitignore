@@ -477,9 +477,10 @@ lib/ojdbc.jar
 
 # do not ignore JabRef icons (they are ignored by the macos setting above)
 !src/main/java/org/jabref/gui/icon
-teamscale-jacoco-agent/jacocoagent.properties
+
+# teamscale stuff
 teamscale-jacoco-agent/documentation/userguide.pdf
 teamscale-jacoco-agent/logging/logback.console.xml
 teamscale-jacoco-agent/logging/logback.debug.xml
 teamscale-jacoco-agent/logging/logback.rolling-file.xml
-teamscale-jacoco-agent/VERSION.txt
+teamscale-jacoco-agent/tempo/

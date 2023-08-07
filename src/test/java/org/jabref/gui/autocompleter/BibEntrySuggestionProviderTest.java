@@ -47,6 +47,7 @@ class BibEntrySuggestionProviderTest {
         database.insertEntry(entry);
 
         Collection<BibEntry> result = autoCompleter.provideSuggestions(getRequest("testKey"));
+        // Collection<BibEntry> result = autoCompleter.provideSuggestions(getRequest("failKey"));
         assertEquals(Collections.singletonList(entry), result);
     }
 
