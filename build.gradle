@@ -58,7 +58,18 @@ java {
 application {
     mainClass.set('org.jabref.cli.Launcher')
     mainModule.set('org.jabref')
-    applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocoagent.properties"']
+    def agentPort = System.getenv('TEAMSCALE_AGENT_PORT')
+    def testOutput = System.getenv('TEAMSCALE_TEST_OUTPUT')
+    if (project.findProperty('Tosca') == "true")
+    {
+        // def revision = System.getenv('TEAMSCALE_REVISION')
+        applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocotoscaagent.properties",out=' + testOutput + ',http-server-port=' + agentPort]
+    }
+    else
+    {
+        applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocoagent.properties"']
+    }
+
 }
 
 // Workaround for https://github.com/openjfx/javafx-gradle-plugin/issues/89
@@ -499,7 +510,7 @@ teamscale {
 
     report {
         testwiseCoverage {
-            partition = 'Tests'
+            partition = 'Testwise Coverage'
         }
     }
 
