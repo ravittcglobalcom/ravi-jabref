@@ -62,14 +62,8 @@ application {
     def testOutput = System.getenv('TEAMSCALE_TEST_OUTPUT')
     if (project.findProperty('Tosca') == "true")
     {
-        // def revision = System.getenv('TEAMSCALE_REVISION')
         applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocotoscaagent.properties",out=' + testOutput + ',http-server-port=' + agentPort]
     }
-    else
-    {
-        applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocoagent.properties"']
-    }
-
 }
 
 // Workaround for https://github.com/openjfx/javafx-gradle-plugin/issues/89
@@ -518,6 +512,7 @@ teamscale {
 
 tasks.register('tiaTests', com.teamscale.TestImpacted) {
     useJUnitPlatform()
+
     jacoco {
         includes = ["tia.*", "org.jabref.*"]
     }
