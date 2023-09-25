@@ -45,11 +45,11 @@ SETX TEAMSCALE_AGENT_URL 127.0.0.1:%TEAMSCALE_AGENT_PORT%
 
 :: Must point to the root directory of the expanded Teamscale JaCoCo Agent distribution.
 
-SETX TEAMSCALE_JACOCO_AGENT "C:\GuyJabref\jabref\teamscale-jacoco-agent"
+SETX TEAMSCALE_JACOCO_AGENT "C:\Demos\guy-jabref\teamscale-jacoco-agent"
 
 :: A comma-separated list of class, jar or war files that represent the system under test.
 
-SETX TEAMSCALE_CLASS_FILES "C:\GuyJabref\jabref\build\classes"
+SETX TEAMSCALE_CLASS_FILES "C:\Demos\guy-jabref\build\classes"
 
 :: optional: The folder into which test details, test execution and log files are written. Default is `%temp%` if not
 :: specified.
@@ -57,7 +57,7 @@ SETX TEAMSCALE_CLASS_FILES "C:\GuyJabref\jabref\build\classes"
 :: TODO Adjust to point to a directory where Teamscale Tosca Plugin and the Teamsale JaCoCo Agent can store temporary
 :: data
 
-SETX TEAMSCALE_TEST_OUTPUT "C:\GuyJabref\jabref\teamscale-jacoco-agent\tempo"
+SETX TEAMSCALE_TEST_OUTPUT "C:\Demos\guy-jabref\teamscale-jacoco-agent\tempo"
 
 :: A path to the script that should be executed after all tests have been executed, to generate 
 :: the testwise coverage report and upload it to Teamscale.

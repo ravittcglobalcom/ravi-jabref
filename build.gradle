@@ -62,7 +62,7 @@ application {
     def testOutput = System.getenv('TEAMSCALE_TEST_OUTPUT')
     if (project.findProperty('Tosca') == "true")
     {
-        applicationDefaultJvmArgs = ['-javaagent:"C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\GuyJabref\\jabref\\teamscale-jacoco-agent\\jacocotoscaagent.properties",out=' + testOutput + ',http-server-port=' + agentPort]
+        applicationDefaultJvmArgs = ['-javaagent:"C:\\Demos\\guy-jabref\\teamscale-jacoco-agent\\lib\\teamscale-jacoco-agent.jar"=config-file="C:\\Demos\\guy-jabref\\teamscale-jacoco-agent\\jacocotoscaagent.properties",out=' + testOutput + ',http-server-port=' + agentPort]
     }
 }
 

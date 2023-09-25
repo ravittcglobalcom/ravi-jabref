@@ -1,4 +1,4 @@
-SET TESTWISE_COVERAGE_REPORT=C:\GuyJabref\jabref\teamscale-jacoco-agent\tempo\execution-127_0_0_1-8123.json
+SET TESTWISE_COVERAGE_REPORT=""C:\Demos\guy-jabref\teamscale-jacoco-agent\tempo\execution-127_0_0_1-8123.json""
 
 :: Upload to Teamscale
 :: TODO Adjust to match your Teamscale instance and user
