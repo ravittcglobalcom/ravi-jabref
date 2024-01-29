@@ -1,12 +1,12 @@
-SET TESTWISE_COVERAGE_REPORT=""C:\Demos\guy-jabref\teamscale-jacoco-agent\tempo\execution-127_0_0_1-8123.json""
+SET TESTWISE_COVERAGE_REPORT=""C:\Users\DELL\Downloads\teamscale-jacoco-agent\teamscale-jacoco-agent\tempo\execution-127_0_0_1-8123.json""
 
 :: Upload to Teamscale
 :: TODO Adjust to match your Teamscale instance and user
 :: The user must have the "View Project" and "Perform External Uploads" permissions on the project
-SET TEAMSCALE_URL=https://ttcglobal.teamscale.io/
-SET TEAMSCALE_PROJECT=guy-jabref
-SET TEAMSCALE_USER=guywmcd
-SET TEAMSCALE_ACCESS_TOKEN=nXTnEGxQT2gfnNw87AoF7es36cbt4Csx
+SET TEAMSCALE_URL=http://54.253.207.240:8080/
+SET TEAMSCALE_PROJECT=ravi
+SET TEAMSCALE_USER=admin
+SET TEAMSCALE_ACCESS_TOKEN=o0jXPd2NuAdsJq0gkocWVbxLc072DZCx
 SET TEAMSCALE_PARTITION=Tosca
 SET TEAMSCALE_COMMIT=main:%TEAMSCALE_REVISION% :: TODO In production, this should point to the git commit timestamp
 
